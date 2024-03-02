@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input[type="text"], .form-group input[type="email"], .form-group textarea {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .form-group button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            transition-duration: 0.4s;
+        }
+        .form-group button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <form id="form1" action="page2.html">
+            <h2>Login</h2>
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required oninput="checkUsername(event)">
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <div class="form-group">
+                <button type="submit">Next</button>
+            </div>
+        </form>
+        <form id="form2" action="page3.html">
+            <h2>Student Details</h2>
+            <div class="form-group">
+                <label for="student_number">Student Number:</label>
+                <input type="text" id="student_number" name="student_number" required>
+            </div>
+            <div class="form-group">
+                <label for="contact_number">Contact Number:</label>
+                <input type="text" id="contact_number" name="contact_number" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="age">Age:</label>
+                <input type="text" id="age" name="age" required>
+            </div>
+            <div class="form-group">
+                <label for="location">Location:</label>
+                <input type="text" id="location" name="location" required>
+            </div>
+            <div class="form-group">
+                <label for="education_qualifications">Education Qualifications:</label>
+                <textarea id="education_qualifications" name="education_qualifications" required></textarea>
+            </div>
+            <div class="form-group">
+                <button type="submit">Next</button>
+            </div>
+        </form>
+        <form id="form3" action="page4.html">
+            <h2>Status</h2>
+            <div class="form-group">
+                <label for="interested">Are you interested?</label>
+                <input type="checkbox" id="interested" name>
+                <div class="form-group">
+                    <label for="interested">Are you interested?</label>
+                    <input type="checkbox" id="interested" name="interested">
+                </div>
+                <div class="form-group">
+                    <label for="prospect">Prospect:</label>
+                    <input type="checkbox" id="prospect" name="prospect">
+                </div>
+                <div class="form-group">
+                    <label for="future_prospects">Future Prospects:</label>
+                    <input type="checkbox" id="future_prospects" name="future_prospects">
+                </div>
+                <div class="form-group">
+                    <label for="not_answering">Not answering:</label>
+                    <input type="checkbox" id="not_answering" name="not_answering">
+                </div>
+                <div class="form-group">
+                    <label for="fee_concerns">Fee concerns:</label>
+                    <textarea id="fee_concerns" name="fee_concerns" maxlength="400"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="parents_obligation">Parents obligation:</label>
+                    <input type="checkbox" id="parents_obligation" name="parents_obligation">
+                </div>
+                <div class="form-group">
+                    <label for="not_interested">Not Interested:</label>
+                    <input type="radio" id="not_interested_switched_off" name="not_interested" value="switched off">
+                    <label for="not_interested_switched_off">Switched off</label>
+                    <input type="radio" id="not_interested_not_connecting" name="not_interested" value="not connecting">
+                    <label for="not_interested_not_connecting">Not connecting</label>
+                    <input type="radio" id="not_interested_not_reachable" name="not_interested" value="not reachable">
+                    <label for="not_interested_not_reachable">Not reachable</label>
+                    <input type="radio" id="not_interested_language_problem" name="not_interested" value="language problem">
+                    <label for="not_interested_language_problem">Language problem</label>
+                </div>
+                <div class="form-group">
+                    <button type="submit">Next</button>
+                </div>
+            </form>
+            <form id="form4" action="javascript:void(0);">
+                <h2>Comments and Follow Up</h2>
+                <div class="form-group">
+                    <label for="comments">Comments (max 800 characters):</label>
+                    <textarea id="comments" name="comments" maxlength="800"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="follow_up">Follow Up (max 800 characters):</label>
+                    <textarea id="follow_up" name="follow_up" maxlength="800"></textarea>
+                </div>
+                <div class="form-group">
+                    <button type="button" onclick="submitForm()">Enter</button>
+                </div>
+            </form>
+        </div>
+    </body>
+    <script>
+        function submitForm() {
+            alert('Thank you for submitting');
+        }
+        </script>
+    </html>

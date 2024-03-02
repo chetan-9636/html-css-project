@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Registration</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    fieldset {
+      margin-bottom: 20px;
+      padding: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Page 1: Login -->
+<fieldset>
+  <legend>Login</legend>
+  <label for="username">Username:</label>
+  <input type="text" id="username" name="username" required>
+  <br>
+  <label for="password">Password:</label>
+  <input type="password" id="password" name="password" required>
+  <br>
+  <button type="button" onclick="validateLogin()">Next</button>
+</fieldset>
+
+<!-- Page 2: Student Details -->
+<fieldset style="display: none;">
+  <legend>Student Details</legend>
+  <label for="studentNumber">Student Number:</label>
+  <input type="text" id="studentNumber" name="studentNumber" required>
+  <br>
+  <label for="contactNumber">Contact Number:</label>
+  <input type="text" id="contactNumber" name="contactNumber" required>
+  <br>
+  <label for="email">Email ID:</label>
+  <input type="email" id="email" name="email" required>
+  <br>
+  <label for="age">Age:</label>
+  <input type="number" id="age" name="age" required>
+  <br>
+  <label for="location">Location:</label>
+  <input type="text" id="location" name="location" required>
+  <br>
+  <label for="education">Education Qualifications:</label>
+  <input type="text" id="education" name="education" required>
+  <br>
+  <button type="button" onclick="nextPage(3)">Next</button>
+</fieldset>
+
+<!-- Page 3: Student Status -->
+<fieldset style="display: none;">
+  <legend>Student Status</legend>
+  <button type="button" onclick="nextPage(4)">Status</button>
+  <div id="statusOptions" style="display: none;">
+    <label><input type="checkbox" id="interested" name="status"> Are you interested?</label>
+    <br>
+    <label><input type="checkbox" id="prospect" name="status"> Prospect</label>
+    <br>
+    <label><input type="checkbox" id="futureProspect" name="status"> Future Prospects</label>
+    <br>
+    <label><input type="checkbox" id="notAnswering" name="status"> Not Answering</label>
+    <br>
+    <label for="feeConcerns">Fee Concerns:</label>
+    <input type="text" id="feeConcerns" name="feeConcerns" maxlength="400">
+    <br>
+    <label><input type="checkbox" id="parentsObligation" name="status"> Parents Obligation</label>
+    <br>
+    <label>Not Interested:</label>
+    <br>
+    <label><input type="radio" id="switchedOff" name="notInterested"> Switched Off</label>
+    <br>
+    <label><input type="radio" id="notConnecting" name="notInterested"> Not Connecting</label>
+    <br>
+    <label><input type="radio" id="notReachable" name="notInterested"> Not Reachable</label>
+    <br>
+    <label><input type="radio" id="languageProblem" name="notInterested"> Language Problem</label>
+    <br>
+    <button type="button" onclick="nextPage(5)">Next</button>
+  </div>
+</fieldset>
+
+<!-- Page 4: Comments -->
+<fieldset style="display: none;">
+  <legend>Comments</legend>
+  <label for="comments">Comments:</label>
+  <textarea id="comments" name="comments" rows="4" cols="50" maxlength="800"></textarea>
+  <br>
+  <label for="followUp">Follow Up:</label>
+  <textarea id="followUp" name="followUp" rows="4" cols="50" maxlength="800"></textarea>
+  <br>
+  <button type="button" onclick="saveData()">Enter</button>
+</fieldset>
+
+<script>
+  function validateLogin() {
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
+
+    if (username === 'student' && password === 'aviator123') {
+      nextPage(2);
+    } else {
+      alert('Invalid credentials. Please try again.');
+    }
+  }
+
+  function nextPage(page) {
+    document.querySelectorAll('fieldset')[page - 1].style.display = 'none';
+    document.querySelectorAll('fieldset')[page].style.display = 'block';
+  }
+
+  function saveData() {
+    const formData = {
+      username: document.getElementById('username').value,
+      studentNumber: document.getElementById('studentNumber').value,
+      contactNumber: document.getElementById('contactNumber').value,
+      email: document.getElementById('email').value,
+      age: document.getElementById('age').value,
+      location: document.getElementById('location').value,
+      education: document.getElementById('education').value,
+      interested: document.getElementById('interested').checked,
+      prospect: document.getElementById('prospect').checked,
+      futureProspect: document.getElementById('futureProspect').checked,
+      notAnswering: document.getElementById('notAnswering').checked,
+      feeConcerns: document.getElementById('feeConcerns').value,
+      parentsObligation: document.getElementById('parentsObligation').checked,
+      notInterested: document.querySelector('input[name="notInterested"]:checked') ? document.querySelector('input[name="notInterested"]:checked').value : '',
+      comments: document.getElementById('comments').value,
+      followUp: document.getElementById('followUp').value,
+    };
+
+    console.log(formData);
+    alert('Data saved! Check the console for details.');
+    // You can send this data to the server for further processing/storage.
+  }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            margin: 20px;
+        }
+
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Login Page -->
+<form id="loginForm" onsubmit="openStudentDetailsPage(); return false;">
+    <h2>Login</h2>
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username" required>
+    <br>
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required>
+    <br>
+    <button type="submit">Login</button>
+</form>
+
+<!-- Student Details Page -->
+<div id="studentDetailsPage" style="display: none;">
+    <form id="studentDetailsForm" onsubmit="openRemarksPage(); return false;">
+        <h2>Student Details</h2>
+        <label for="studentName">Student Name:</label>
+        <input type="text" id="studentName" name="studentName" required>
+        <br>
+        <label for="contactNumber">Contact Number:</label>
+        <input type="tel" id="contactNumber" name="contactNumber" required>
+        <br>
+        <label for="educationQualification">Education Qualification:</label>
+        <input type="text" id="educationQualification" name="educationQualification" required>
+        <br>
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" required>
+        <br>
+        <label for="location">Location:</label>
+        <input type="text" id="location" name="location" required>
+        <br>
+        <button type="submit">Next</button>
+    </form>
+</div>
+
+<!-- Remarks Page -->
+<div id="remarksPage" style="display: none;">
+    <form id="remarksForm" onsubmit="openAddOnPage(); return false;">
+        <h2>Remarks</h2>
+        <label for="remarks">Remarks:</label>
+        <textarea id="remarks" name="remarks" rows="4" required></textarea>
+        <br>
+        <label for="comments">Comments:</label>
+        <textarea id="comments" name="comments" rows="4" required></textarea>
+        <br>
+        <label for="followUp">Follow Up:</label>
+        <input type="text" id="followUp" name="followUp" required>
+        <br>
+        <button type="submit">Submit</button>
+    </form>
+</div>
+
+<!-- Add-On Page -->
+<div id="addOnPage" style="display: none;">
+    <h2>Add-On</h2>
+    <!-- Your additional content goes here -->
+</div>
+
+<script>
+    function openStudentDetailsPage() {
+        document.getElementById('loginForm').style.display = 'none';
+        document.getElementById('studentDetailsPage').style.display = 'block';
+    }
+
+    function openRemarksPage() {
+        document.getElementById('studentDetailsPage').style.display = 'none';
+        document.getElementById('remarksPage').style.display = 'block';
+    }
+
+    function openAddOnPage() {
+        document.getElementById('remarksPage').style.display = 'none';
+        document.getElementById('addOnPage').style.display = 'block';
+    }
+</script>
+
+</body>
+</html>
